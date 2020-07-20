@@ -82,6 +82,7 @@ output application/json
 payload map ( payload01 , indexOfPayload01 ) -> {
 	id: payload01.id,
 	Requestid: vars.idvalue,
+	infoRequestTime: now(),
 	first_name: payload01.first_name ++ ' ' ++ payload01.last_name,
 	email: payload01.email,
 	Phone_Number: payload01."Phone Number",
