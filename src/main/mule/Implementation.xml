@@ -72,6 +72,8 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
     "State": "Nevada"
   }
 ]]' doc:name="Set Payload" doc:id="e7e7a212-e734-40d6-8759-3c317efc3238" />
+		<set-variable value="#[attributes.queryParams.id]" doc:name="Set Variable" doc:id="f6039c2d-f90d-449b-811a-a79b282c38e9" variableName="idvalue"/>
+		<logger level="INFO" doc:name="Logger" doc:id="496f6dea-90fe-436e-a96f-19385370d44f" message="#[vars.idvalue]"/>
 		<ee:transform doc:name="Transform Message" doc:id="70d41d46-cffd-4ea4-8dc0-f01c2e6dc2f5" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
