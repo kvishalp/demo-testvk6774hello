@@ -33,6 +33,7 @@
 				<workerType>Micro</workerType>
 				<applicationName>demo-testvk6774hello</applicationName>
 				<muleVersion>4.3.0</muleVersion>
+				<objectStoreV2>true</objectStoreV2> 
 				</cloudHubDeployment>
 				</configuration>
 			</plugin>
