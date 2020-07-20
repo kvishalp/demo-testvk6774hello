@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="json_data" format="json">
+      <types:shape format="weave" example="examples/MOCK_DATA(1).json"><![CDATA[%dw 2.0
+
+type json_data = Array<{|  id: Number {"typeId": "int"},   first_name: String,   last_name: String,   email: String,   "Phone Number": String,   "Street Address": String,   "Street Name": String,   City: String,   "Postal Code": String,   Country: String,   State: String|}> {"example": "[{\\\"id\\\":1,\\\"first_name\\\":\\\"Mallory\\\",\\\"last_name\\\":\\\"Klaussen\\\",\\\"email\\\":\\\"mklaussen0@ca.gov\\\",\\\"Phone Number\\\":\\\"502-440-3698\\\",\\\"Street Address\\\":\\\"01 Monterey Place\\\",\\\"Street Name\\\":\\\"Kinsman\\\",\\\"City\\\":\\\"Migrate\\\",\\\"Postal Code\\\":\\\"41905\\\",\\\"Country\\\":\\\"United States\\\",\\\"State\\\":\\\"Kentucky\\\"},{\\\"id\\\":2,\\\"first_name\\\":\\\"Raimundo\\\",\\\"last_name\\\":\\\"Ravillas\\\",\\\"email\\\":\\\"rravillas1@themeforest.net\\\",\\\"Phone Number\\\":\\\"208-996-8551\\\",\\\"Street Address\\\":\\\"8 Leroy Place\\\",\\\"Street Name\\\":\\\"Mallard\\\",\\\"City\\\":\\\"Pocatello\\\",\\\"Postal Code\\\":\\\"83206\\\",\\\"Country\\\":\\\"United States\\\",\\\"State\\\":\\\"Idaho\\\"},{\\\"id\\\":3,\\\"first_name\\\":\\\"Delaney\\\",\\\"last_name\\\":\\\"Emmot\\\",\\\"email\\\":\\\"demmot2@mapquest.com\\\",\\\"Phone Number\\\":\\\"910-660-5067\\\",\\\"Street Address\\\":\\\"10303 Sutteridge Court\\\",\\\"Street Name\\\":\\\"Myrtle\\\",\\\"City\\\":\\\"Wilmington\\\",\\\"Postal Code\\\":\\\"28410\\\",\\\"Country\\\":\\\"United States\\\",\\\"State\\\":\\\"North Carolina\\\"},{\\\"id\\\":4,\\\"first_name\\\":\\\"Anya\\\",\\\"last_name\\\":\\\"Padell\\\",\\\"email\\\":\\\"apadell3@discovery.com\\\",\\\"Phone Number\\\":\\\"410-523-3191\\\",\\\"Street Address\\\":\\\"126 Maryland Way\\\",\\\"Street Name\\\":\\\"Glacier Hill\\\",\\\"City\\\":\\\"Baltimore\\\",\\\"Postal Code\\\":\\\"21216\\\",\\\"Country\\\":\\\"United States\\\",\\\"State\\\":\\\"Maryland\\\"},{\\\"id\\\":5,\\\"first_name\\\":\\\"Gerrard\\\",\\\"last_name\\\":\\\"Trewhella\\\",\\\"email\\\":\\\"gtrewhella4@discovery.com\\\",\\\"Phone Number\\\":\\\"702-916-8932\\\",\\\"Street Address\\\":\\\"4 Cottonwood Circle\\\",\\\"Street Name\\\":\\\"Acker\\\",\\\"City\\\":\\\"Las Vegas\\\",\\\"Postal Code\\\":\\\"89193\\\",\\\"Country\\\":\\\"United States\\\",\\\"State\\\":\\\"Nevada\\\"}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#70d41d46-cffd-4ea4-8dc0-f01c2e6dc2f5">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="json_data"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

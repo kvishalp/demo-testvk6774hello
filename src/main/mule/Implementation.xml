@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="testImplFlow" doc:id="067f0aef-b3ab-4227-8a8b-7b187f5f6a89" >
+		<set-payload value='#[[
+  {
+    "id": 1,
+    "first_name": "Mallory",
+    "last_name": "Klaussen",
+    "email": "mklaussen0@ca.gov",
+    "Phone Number": "502-440-3698",
+    "Street Address": "01 Monterey Place",
+    "Street Name": "Kinsman",
+    "City": "Migrate",
+    "Postal Code": "41905",
+    "Country": "United States",
+    "State": "Kentucky"
+  },
+  {
+    "id": 2,
+    "first_name": "Raimundo",
+    "last_name": "Ravillas",
+    "email": "rravillas1@themeforest.net",
+    "Phone Number": "208-996-8551",
+    "Street Address": "8 Leroy Place",
+    "Street Name": "Mallard",
+    "City": "Pocatello",
+    "Postal Code": "83206",
+    "Country": "United States",
+    "State": "Idaho"
+  },
+  {
+    "id": 3,
+    "first_name": "Delaney",
+    "last_name": "Emmot",
+    "email": "demmot2@mapquest.com",
+    "Phone Number": "910-660-5067",
+    "Street Address": "10303 Sutteridge Court",
+    "Street Name": "Myrtle",
+    "City": "Wilmington",
+    "Postal Code": "28410",
+    "Country": "United States",
+    "State": "North Carolina"
+  },
+  {
+    "id": 4,
+    "first_name": "Anya",
+    "last_name": "Padell",
+    "email": "apadell3@discovery.com",
+    "Phone Number": "410-523-3191",
+    "Street Address": "126 Maryland Way",
+    "Street Name": "Glacier Hill",
+    "City": "Baltimore",
+    "Postal Code": "21216",
+    "Country": "United States",
+    "State": "Maryland"
+  },
+  {
+    "id": 5,
+    "first_name": "Gerrard",
+    "last_name": "Trewhella",
+    "email": "gtrewhella4@discovery.com",
+    "Phone Number": "702-916-8932",
+    "Street Address": "4 Cottonwood Circle",
+    "Street Name": "Acker",
+    "City": "Las Vegas",
+    "Postal Code": "89193",
+    "Country": "United States",
+    "State": "Nevada"
+  }
+]]' doc:name="Set Payload" doc:id="e7e7a212-e734-40d6-8759-3c317efc3238" />
+		<ee:transform doc:name="Transform Message" doc:id="70d41d46-cffd-4ea4-8dc0-f01c2e6dc2f5" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload map ( payload01 , indexOfPayload01 ) -> {
+	id: payload01.id,
+	first_name: payload01.first_name ++ ' ' ++ payload01.last_name,
+	email: payload01.email,
+	Phone_Number: payload01."Phone Number",
+		"Street Address": payload01."Street Address",
+		"Street Name": payload01."Street Name",
+		City: payload01.City,
+	    "Postal Code": payload01."Postal Code",
+	    State : payload01.State,
+	    Country : payload01.Country
+	    
+		
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>

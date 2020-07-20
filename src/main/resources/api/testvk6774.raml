@@ -1,0 +1,28 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/4637b8de-c9e9-432c-bb4f-b18ba91c14c7/ # 
+title: TestVk6774
+traits:
+  client-id-required:
+    headers:
+      client_id:
+        type: string
+      client_secret:
+        type: string
+    responses:
+      401:
+        description: Unauthorized or invalid client application credentials
+      500:
+        description: Bad response from authorization server, or WSDL SOAP Fault error
+/hello:
+  get:
+   is:
+       - client-id-required
+   description: Get Order Information by CLient Id
+   responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "message" : "Hello,this is sample response"
+              }
